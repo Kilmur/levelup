@@ -20,7 +20,7 @@ public class User implements UserDetails {
     private String login;
     private String password;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private Set<Sphere> spheres;
 
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)

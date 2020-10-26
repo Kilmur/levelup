@@ -1,6 +1,7 @@
 package maximstarikov.levelup.config;
 
-import lombok.RequiredArgsConstructor;
+import maximstarikov.levelup.models.entities.Role;
+import maximstarikov.levelup.properties.Paths;
 import maximstarikov.levelup.services.impl.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -9,6 +10,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -27,11 +29,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .authorizeRequests()
-                .anyRequest().authenticated()
-                .and()
                 .csrf().disable()
-                .httpBasic();
+                .httpBasic().disable()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()
+                .authorizeRequests()
+                .antMatchers("/api/v1/auth", "/api/v1/registration").permitAll()
+                .antMatchers("/api/v1/user/*").hasRole(Role.USER.name());
     }
 
     @Override
@@ -50,6 +54,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void setPasswordEncoder(PasswordEncoder passwordEncoder) {
         this.passwordEncoder = passwordEncoder;
     }
-
-
 }

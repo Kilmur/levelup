@@ -25,10 +25,10 @@ public class Goal {
     private String description;
     private boolean finished;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "sphere_id")
     private Sphere sphere;
 
-    @OneToMany(mappedBy = "goal")
+    @OneToMany(mappedBy = "goal", fetch = FetchType.LAZY)
     private Set<Step> steps;
 }

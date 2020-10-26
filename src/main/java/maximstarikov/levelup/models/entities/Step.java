@@ -16,8 +16,6 @@ public class Step {
 
     private String name;
     private String description;
-
-    @Column(name = "target_date")
     private Instant targetDate;
 
     @ManyToOne
