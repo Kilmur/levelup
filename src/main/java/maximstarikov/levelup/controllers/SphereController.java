@@ -1,16 +1,23 @@
 package maximstarikov.levelup.controllers;
 
-import maximstarikov.levelup.models.dto.out.SpheresWithGoalsResponse;
+import lombok.RequiredArgsConstructor;
+import maximstarikov.levelup.facades.SphereFacade;
+import maximstarikov.levelup.models.dto.out.SphereWithGoalsResponse;
 import maximstarikov.levelup.properties.Paths;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(Paths.SPHERE_ENDPOINT)
+@RequiredArgsConstructor
 public class SphereController {
 
+    private final SphereFacade sphereFacade;
+
     @GetMapping
-    public SpheresWithGoalsResponse getSpheresWithGoals() {
-        return null;
+    public List<SphereWithGoalsResponse> getSpheresWithGoals() {
+        return sphereFacade.getSpheresWithGoals();
     }
 
     @PostMapping

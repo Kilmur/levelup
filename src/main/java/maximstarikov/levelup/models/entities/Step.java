@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.Instant;
+import java.util.UUID;
 
 @Data
 @Entity
@@ -13,6 +14,8 @@ public class Step {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    private UUID uuid;
 
     private String name;
     private String description;

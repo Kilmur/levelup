@@ -4,8 +4,9 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Set;
+import java.util.UUID;
 
-@Data
+@Data // TODO : подумать над lombok аннотациями для разных типов
 @Entity
 @Table(name = "spheres")
 public class Sphere {
@@ -13,6 +14,10 @@ public class Sphere {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    private UUID uuid;
+
+    private String name;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")

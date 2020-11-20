@@ -5,6 +5,7 @@ import lombok.Data;
 import javax.persistence.*;
 import java.time.Instant;
 import java.util.Set;
+import java.util.UUID;
 
 @Data
 @Entity
@@ -14,6 +15,8 @@ public class Goal {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    private UUID uuid;
 
     @Column(name = "created_date")
     private Instant createdDate;

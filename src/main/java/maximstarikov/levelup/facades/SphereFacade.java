@@ -1,9 +1,10 @@
 package maximstarikov.levelup.facades;
 
-import maximstarikov.levelup.models.dto.out.SpheresWithGoalsResponse;
+import maximstarikov.levelup.models.dto.out.SphereWithGoalsResponse;
+
+import java.util.List;
 
 public interface SphereFacade {
 
-    SpheresWithGoalsResponse getSpheresWithGoals();
-
+    List<SphereWithGoalsResponse> getSpheresWithGoals();
 }
