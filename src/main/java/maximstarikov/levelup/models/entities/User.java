@@ -1,23 +1,30 @@
 package maximstarikov.levelup.models.entities;
 
-import lombok.Data;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.Collection;
 import java.util.Set;
 
 @Data
 @Entity
 @Table(name = "users")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) // TODO : посмотреть какую лучше, может sequence ?
     private Long id;
 
+    @NotBlank
     private String login;
+
+    @NotBlank
     private String password;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
@@ -35,12 +42,12 @@ public class User implements UserDetails {
 
     @Override
     public String getPassword() {
-        return null;
+        return password;
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return login;
     }
 
     @Override

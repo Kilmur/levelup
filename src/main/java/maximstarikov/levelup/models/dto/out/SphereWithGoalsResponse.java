@@ -1,21 +1,27 @@
 package maximstarikov.levelup.models.dto.out;
 
+import lombok.Value;
+
 import java.time.Instant;
 import java.util.Set;
 import java.util.UUID;
 
+@Value
 public class SphereWithGoalsResponse {
 
-    private String sphereName;
+    String sphereName;
 
-    private Set<Goal> goals;
+    UUID sphereUUID;
 
+    Set<Goal> goals;
+
+    @Value
     public static class Goal {
 
-        private String name;
+        String goalName;
 
-        private UUID uuid;
+        UUID goalUuid;
 
-        private Instant targetDate;
+        Instant targetDate;
     }
 }

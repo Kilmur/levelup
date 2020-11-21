@@ -18,6 +18,6 @@ public class SphereFacadeImpl implements SphereFacade {
     @Override
     public List<SphereWithGoalsResponse> getSpheresWithGoals() {
         SecurityContextHolder.getContext().getAuthentication().getName();
-        return sphereService.getSphereWithGoalsByUserId();
+        return null;
     }
 }
