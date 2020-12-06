@@ -1,7 +1,7 @@
 package maximstarikov.levelup.config;
 
 import maximstarikov.levelup.models.entities.Role;
-import maximstarikov.levelup.properties.Paths;
+import maximstarikov.levelup.security.JwtFilter;
 import maximstarikov.levelup.services.impl.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -13,6 +13,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -20,6 +21,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private UserDetailsServiceImpl userDetailsService;
     private PasswordEncoder passwordEncoder;
+    private JwtFilter jwtFilter;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -35,7 +37,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers("/api/v1/auth", "/api/v1/registration").permitAll()
-                .antMatchers("/api/v1/user/*").hasRole(Role.USER.name());
+                .antMatchers("/api/v1/user/*").hasRole(Role.USER.name())
+                .and()
+                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
     }
 
     @Override
@@ -53,5 +57,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     public void setPasswordEncoder(PasswordEncoder passwordEncoder) {
         this.passwordEncoder = passwordEncoder;
+    }
+
+    @Autowired
+    public void setJwtFilter(JwtFilter jwtFilter) {
+        this.jwtFilter = jwtFilter;
     }
 }

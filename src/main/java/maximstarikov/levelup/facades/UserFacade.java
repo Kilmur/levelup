@@ -4,5 +4,5 @@ import maximstarikov.levelup.models.dto.in.RegistrationUserDto;
 
 public interface UserFacade {
 
-    void addUser(RegistrationUserDto dto);
+    void registrationUser(RegistrationUserDto dto);
 }

@@ -20,7 +20,7 @@ public class UserFacadeImpl implements UserFacade {
     private final PasswordEncoder passwordEncoder;
 
     @Override
-    public void addUser(RegistrationUserDto dto) {
+    public void registrationUser(RegistrationUserDto dto) {
         if (userService.isExistsByLogin(dto.getLogin())) {
             throw UserAlreadyExistsException.byLogin(dto.getLogin());
         }
