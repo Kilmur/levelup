@@ -1,0 +1,26 @@
+### РЕГИСТРАЦИЯ
+POST localhost:8080/api/v1/registration
+Content-Type: application/json
+
+{
+"login": "bob",
+"password": "qwerty"
+}
+
+### АВТОРИЗАЦИЯ
+POST localhost:8080/api/v1/auth
+Content-Type: application/json
+
+{
+  "login": "bob",
+  "password": "qwerty"
+}
+
+###
+GET localhost:8080/api/v1/user/sphere
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJib2IiLCJleHAiOjE2MTI4MTgwMDB9.l8XXgm7fIzKgWnw30gkpXOO_ZtsnfjmWQY44HuQL5I0zAXtRFg49ybbTNe2-4jlKjdI9fYYGwgRvOocIp77Ydw
+
+###
+
+
+###
