@@ -27,7 +27,7 @@ public class UserFacadeImpl implements UserFacade {
         User userForSave = User.builder()
                 .login(dto.getLogin())
                 .password(passwordEncoder.encode(dto.getPassword()))
-                .roles(Collections.singleton(Role.USER))
+                .roles(Collections.singleton(Role.ROLE_USER))
                 .build();
         userService.save(userForSave);
     }
