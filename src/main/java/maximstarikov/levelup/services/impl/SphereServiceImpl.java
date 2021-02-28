@@ -16,6 +16,6 @@ public class SphereServiceImpl implements SphereService {
 
     @Override
     public List<Sphere> getSphereWithGoalsByUserId(Long userId) {
-        return repository.findAllByUserId(userId);
+        return repository.findAllWithGoalsByUserId(userId);
     }
 }
