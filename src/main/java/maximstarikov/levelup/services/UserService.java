@@ -6,6 +6,8 @@ import java.util.Optional;
 
 public interface UserService {
 
+    Optional<User> getByLoginWithRoles(String login);
+
     Optional<User> getByLogin(String login);
 
     User save(User userForSave);

@@ -6,7 +6,7 @@ import maximstarikov.levelup.repositories.SphereRepository;
 import maximstarikov.levelup.services.SphereService;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Collection;
 
 @Service
 @RequiredArgsConstructor
@@ -15,7 +15,7 @@ public class SphereServiceImpl implements SphereService {
     private final SphereRepository repository;
 
     @Override
-    public List<Sphere> getSphereWithGoalsByUserId(Long userId) {
+    public Collection<Sphere> getSphereWithGoalsByUserId(Long userId) {
         return repository.findAllWithGoalsByUserId(userId);
     }
 }

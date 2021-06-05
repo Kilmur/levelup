@@ -15,6 +15,11 @@ public class UserServiceImpl implements UserService {
     private final UserRepository repository;
 
     @Override
+    public Optional<User> getByLoginWithRoles(String login) {
+        return repository.getWithRolesByLogin(login);
+    }
+
+    @Override
     public Optional<User> getByLogin(String login) {
         return repository.getByLogin(login);
     }

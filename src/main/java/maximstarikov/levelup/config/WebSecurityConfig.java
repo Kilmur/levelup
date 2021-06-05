@@ -1,6 +1,5 @@
 package maximstarikov.levelup.config;
 
-import maximstarikov.levelup.models.entities.Role;
 import maximstarikov.levelup.security.JwtFilter;
 import maximstarikov.levelup.services.impl.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -21,7 +21,7 @@ public class Step {
     private String description;
     private Instant targetDate;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "goal_id")
     private Goal goal;
 

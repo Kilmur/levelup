@@ -23,6 +23,6 @@ public class Sphere {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "sphere")
+    @OneToMany(mappedBy = "sphere", fetch = FetchType.LAZY)
     private Set<Goal> goals;
 }

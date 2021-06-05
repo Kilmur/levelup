@@ -21,7 +21,7 @@ public class AuthFacadeImpl implements AuthFacade {
 
     @Override
     public AuthResponse executeAuth(AuthDto dto) {
-        User user = userService.getByLogin(dto.getLogin()).orElseThrow(() -> new BadCredentialsException("Некорректный логин или пароль"));
+        User user = userService.getByLoginWithRoles(dto.getLogin()).orElseThrow(() -> new BadCredentialsException("Некорректный логин или пароль"));
         if (!passwordEncoder.matches(dto.getPassword(), user.getPassword())) {
             throw new BadCredentialsException("Некорректный логин или пароль"); //TODO : поменять на свой exception? Как тут вывести message?
         }
