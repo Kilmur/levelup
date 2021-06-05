@@ -17,12 +17,14 @@ public class SphereListToSphereWithGoalsResponseListImpl implements SphereListTo
         return spheres.stream().map(entity -> SphereWithGoalsResponse.builder()
                 .sphereName(entity.getName())
                 .sphereUUID(entity.getUuid())
-                .goals(entity.getGoals().stream().
-                        map(goal -> SphereWithGoalsResponse.Goal.builder() // TODO : может тут разгрузить
+                .goals(entity.getGoals()
+                        .stream()
+                        .map(goal -> SphereWithGoalsResponse.Goal.builder()
                                 .goalName(goal.getName())
                                 .goalUuid(goal.getUuid())
                                 .targetDate(goal.getTargetDate())
-                                .build()).collect(Collectors.toSet()))
+                                .build())
+                        .collect(Collectors.toSet()))
                 .build())
                 .collect(Collectors.toList());
     }

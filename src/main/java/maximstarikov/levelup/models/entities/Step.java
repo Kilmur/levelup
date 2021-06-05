@@ -1,12 +1,14 @@
 package maximstarikov.levelup.models.entities;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.Instant;
 import java.util.UUID;
 
-@Data
+@Setter
+@Getter
 @Entity
 @Table(name = "steps")
 public class Step {

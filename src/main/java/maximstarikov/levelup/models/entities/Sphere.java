@@ -1,12 +1,14 @@
 package maximstarikov.levelup.models.entities;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Set;
 import java.util.UUID;
 
-@Data // TODO : подумать над lombok аннотациями для разных типов
+@Setter
+@Getter // TODO : подумать над lombok аннотациями для разных типов
 @Entity
 @Table(name = "spheres")
 public class Sphere {

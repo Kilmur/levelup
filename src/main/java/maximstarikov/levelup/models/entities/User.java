@@ -9,7 +9,8 @@ import javax.validation.constraints.NotBlank;
 import java.util.Collection;
 import java.util.Set;
 
-@Data
+@Setter
+@Getter
 @Entity
 @Table(name = "users")
 @Builder
