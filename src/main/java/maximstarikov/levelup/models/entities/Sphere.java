@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.Instant;
 import java.util.Set;
 import java.util.UUID;
 
@@ -20,6 +21,10 @@ public class Sphere {
     private UUID uuid;
 
     private String name;
+
+    private Instant createdDate;
+
+    private String backgroundColor;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")

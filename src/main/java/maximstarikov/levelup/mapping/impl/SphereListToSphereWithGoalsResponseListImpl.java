@@ -15,13 +15,13 @@ public class SphereListToSphereWithGoalsResponseListImpl implements SphereListTo
     @Override
     public List<SphereWithGoalsResponse> convert(Collection<Sphere> spheres) {
         return spheres.stream().map(entity -> SphereWithGoalsResponse.builder()
-                .sphereName(entity.getName())
-                .sphereUUID(entity.getUuid())
+                .name(entity.getName())
+                .uuid(entity.getUuid())
                 .goals(entity.getGoals()
                         .stream()
                         .map(goal -> SphereWithGoalsResponse.Goal.builder()
-                                .goalName(goal.getName())
-                                .goalUuid(goal.getUuid())
+                                .name(goal.getName())
+                                .uuid(goal.getUuid())
                                 .targetDate(goal.getTargetDate())
                                 .build())
                         .collect(Collectors.toSet()))

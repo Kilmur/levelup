@@ -20,10 +20,8 @@ public class Goal {
 
     private UUID uuid;
 
-    @Column(name = "created_date")
     private Instant createdDate;
 
-    @Column(name = "target_date")
     private Instant targetDate;
 
     private String name;

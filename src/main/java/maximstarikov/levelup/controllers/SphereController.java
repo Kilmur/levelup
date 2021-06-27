@@ -2,6 +2,8 @@ package maximstarikov.levelup.controllers;
 
 import lombok.RequiredArgsConstructor;
 import maximstarikov.levelup.facades.SphereFacade;
+import maximstarikov.levelup.models.dto.in.SphereCreateDto;
+import maximstarikov.levelup.models.dto.out.SphereResponse;
 import maximstarikov.levelup.models.dto.out.SphereWithGoalsResponse;
 import maximstarikov.levelup.properties.Endpoints;
 import org.springframework.web.bind.annotation.*;
@@ -21,8 +23,8 @@ public class SphereController {
     }
 
     @PostMapping
-    public void create() {
-
+    public SphereResponse create(SphereCreateDto dto) {
+        return sphereFacade.create(dto);
     }
 
     @PutMapping

@@ -11,9 +11,9 @@ import java.util.UUID;
 @Builder
 public class SphereWithGoalsResponse {
 
-    String sphereName;
+    String name;
 
-    UUID sphereUUID;
+    UUID uuid;
 
     Set<Goal> goals;
 
@@ -21,9 +21,9 @@ public class SphereWithGoalsResponse {
     @Builder
     public static class Goal {
 
-        String goalName;
+        String name;
 
-        UUID goalUuid;
+        UUID uuid;
 
         Instant targetDate;
     }

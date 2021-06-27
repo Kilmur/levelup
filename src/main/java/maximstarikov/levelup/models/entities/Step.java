@@ -21,6 +21,7 @@ public class Step {
 
     private String name;
     private String description;
+    private Instant createdDate;
     private Instant targetDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
