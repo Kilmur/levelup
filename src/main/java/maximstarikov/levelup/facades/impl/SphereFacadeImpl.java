@@ -11,8 +11,7 @@ import maximstarikov.levelup.models.entities.Sphere;
 import maximstarikov.levelup.models.entities.User;
 import maximstarikov.levelup.services.SphereService;
 import maximstarikov.levelup.services.UserService;
-import org.apache.logging.log4j.util.Strings;
-import org.springframework.core.convert.converter.Converter;
+import org.springframework.core.convert.ConversionService;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +26,7 @@ public class SphereFacadeImpl implements SphereFacade {
     private final SphereService sphereService;
     private final UserService userService;
     private final SphereListToSphereWithGoalsResponseList spheresToResponseListConverter;
+    private  final ConversionService conversionService;
 
     @Override
     public List<SphereWithGoalsResponse> getSpheresWithGoals() {
@@ -44,7 +44,6 @@ public class SphereFacadeImpl implements SphereFacade {
         } else {
             newSphere.setBackgroundColor(dto.getBackgroundColor());
         }
-        Sphere savedEntity = sphereService.save(newSphere);
-        return null;
+        return conversionService.convert(sphereService.save(newSphere), SphereResponse.class);
     }
 }

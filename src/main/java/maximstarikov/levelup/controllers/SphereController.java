@@ -8,6 +8,7 @@ import maximstarikov.levelup.models.dto.out.SphereWithGoalsResponse;
 import maximstarikov.levelup.properties.Endpoints;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -23,7 +24,7 @@ public class SphereController {
     }
 
     @PostMapping
-    public SphereResponse create(SphereCreateDto dto) {
+    public SphereResponse create(@RequestBody @Valid SphereCreateDto dto) {
         return sphereFacade.create(dto);
     }
 

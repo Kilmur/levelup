@@ -17,10 +17,17 @@ Content-Type: application/json
 }
 
 ###
-GET localhost:8080/api/v1/user/sphere
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJib2IiLCJleHAiOjE2MTI4MTgwMDB9.l8XXgm7fIzKgWnw30gkpXOO_ZtsnfjmWQY44HuQL5I0zAXtRFg49ybbTNe2-4jlKjdI9fYYGwgRvOocIp77Ydw
+GET localhost:8080/api/v1/user/spheres
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJib2IiLCJleHAiOjE2MjYwMzcyMDB9.Iw2BOdIGn5nF1T6stUWr0FPko2qFl_YNvuvCMhFVGWkSjsv1jCXlSgXT7M4YyqdmHPAZonnLio1Kqa1TelJXWQ
 
-###
+### CREATE SPHERE
+POST localhost:8080/api/v1/user/spheres
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJib2IiLCJleHAiOjE2MjYwMzcyMDB9.Iw2BOdIGn5nF1T6stUWr0FPko2qFl_YNvuvCMhFVGWkSjsv1jCXlSgXT7M4YyqdmHPAZonnLio1Kqa1TelJXWQ
+Content-Type: application/json
 
+{
+  "name": "Сфера 1",
+  "backgroundColor": "#ff0000"
+}
 
 ###

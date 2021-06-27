@@ -18,6 +18,7 @@ public class Sphere {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    // TODO : генерация
     private UUID uuid;
 
     private String name;
