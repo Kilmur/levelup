@@ -2,8 +2,12 @@ package maximstarikov.levelup.models.entities;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Loader;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import java.sql.Types;
 import java.time.Instant;
 import java.util.Set;
 import java.util.UUID;
@@ -15,15 +19,17 @@ import java.util.UUID;
 public class Sphere {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO) // TODO : sequence
     private Long id;
 
-    // TODO : генерация
-    private UUID uuid;
+    // TODO : генерация через аннотацию
+    @Type(type = "uuid-char")
+    private UUID uuid = UUID.randomUUID();
 
     private String name;
 
-    private Instant createdDate;
+    // TODO : подумать
+    private Instant createdDate = Instant.now();
 
     private String backgroundColor;
 

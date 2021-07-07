@@ -3,6 +3,7 @@ package maximstarikov.levelup.controllers;
 import lombok.RequiredArgsConstructor;
 import maximstarikov.levelup.facades.SphereFacade;
 import maximstarikov.levelup.models.dto.in.SphereCreateDto;
+import maximstarikov.levelup.models.dto.in.SphereUpdateDto;
 import maximstarikov.levelup.models.dto.out.SphereResponse;
 import maximstarikov.levelup.models.dto.out.SphereWithGoalsResponse;
 import maximstarikov.levelup.properties.Endpoints;
@@ -29,7 +30,7 @@ public class SphereController {
     }
 
     @PutMapping
-    public void update() {
-
+    public SphereResponse update(@RequestBody @Valid SphereUpdateDto dto) {
+        return sphereFacade.update(dto);
     }
 }

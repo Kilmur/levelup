@@ -7,6 +7,8 @@ import maximstarikov.levelup.services.SphereService;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -22,5 +24,10 @@ public class SphereServiceImpl implements SphereService {
     @Override
     public Sphere save(Sphere newSphere) {
         return repository.save(newSphere);
+    }
+
+    @Override
+    public Optional<Sphere> getByUuid(UUID uuid) {
+        return repository.findByUuid(uuid);
     }
 }

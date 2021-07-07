@@ -13,4 +13,6 @@ public interface UserService {
     User save(User userForSave);
 
     boolean isExistsByLogin(String login);
+
+    User getCurrentUser();
 }

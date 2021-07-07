@@ -3,13 +3,15 @@ package maximstarikov.levelup.repositories;
 import maximstarikov.levelup.models.entities.Sphere;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 
 import java.util.Collection;
+import java.util.Optional;
+import java.util.UUID;
 
 public interface SphereRepository extends JpaRepository<Sphere, Long> {
 
-//    @Query("FROM Sphere s JOIN FETCH s.goals WHERE s.user.id = :userId")
     @EntityGraph(attributePaths = "goals")
     Collection<Sphere> findAllWithGoalsByUserId(Long userId);
+
+    Optional<Sphere> findByUuid(UUID uuid);
 }

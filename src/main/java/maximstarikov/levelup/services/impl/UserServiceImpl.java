@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import maximstarikov.levelup.models.entities.User;
 import maximstarikov.levelup.repositories.UserRepository;
 import maximstarikov.levelup.services.UserService;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -32,5 +33,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean isExistsByLogin(String login) {
         return repository.existsByLogin(login);
+    }
+
+    @Override
+    public User getCurrentUser() {
+        return (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     }
 }
