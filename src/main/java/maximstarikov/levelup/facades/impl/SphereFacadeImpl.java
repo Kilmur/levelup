@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.UUID;
 
 import static org.apache.logging.log4j.util.Strings.isBlank;
 import static org.apache.logging.log4j.util.Strings.isNotBlank;
@@ -56,5 +57,10 @@ public class SphereFacadeImpl implements SphereFacade {
         if (isNotBlank(dto.getName())) sphere.setName(dto.getName());
         if (isNotBlank(dto.getBackgroundColor())) sphere.setBackgroundColor(dto.getBackgroundColor());
         return conversionService.convert(sphere, SphereResponse.class);
+    }
+
+    @Override
+    public void deleteByUuid(UUID uuid) {
+        sphereService.deleteByUuid(uuid);
     }
 }

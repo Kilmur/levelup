@@ -41,4 +41,7 @@ Content-Type: application/json
   "backgroundColor": "#ff0011"
 }
 
+### DELETE SPHERE BY UUID
+DELETE localhost:8080/api/v1/user/spheres/by-uuid/b4041b0d-2afb-41de-b44e-df4afeca5e1d
+
 ###

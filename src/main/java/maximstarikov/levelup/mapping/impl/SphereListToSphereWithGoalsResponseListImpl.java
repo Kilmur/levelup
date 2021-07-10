@@ -17,6 +17,7 @@ public class SphereListToSphereWithGoalsResponseListImpl implements SphereListTo
         return spheres.stream().map(entity -> SphereWithGoalsResponse.builder()
                 .name(entity.getName())
                 .uuid(entity.getUuid())
+                .backgroundColor(entity.getBackgroundColor())
                 .goals(entity.getGoals()
                         .stream()
                         .map(goal -> SphereWithGoalsResponse.Goal.builder()

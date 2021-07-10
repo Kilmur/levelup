@@ -15,6 +15,8 @@ public class SphereWithGoalsResponse {
 
     UUID uuid;
 
+    String backgroundColor;
+
     Set<Goal> goals;
 
     @Value

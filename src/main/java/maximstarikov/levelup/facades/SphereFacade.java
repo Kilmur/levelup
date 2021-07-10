@@ -6,6 +6,7 @@ import maximstarikov.levelup.models.dto.out.SphereResponse;
 import maximstarikov.levelup.models.dto.out.SphereWithGoalsResponse;
 
 import java.util.List;
+import java.util.UUID;
 
 public interface SphereFacade {
 
@@ -14,4 +15,6 @@ public interface SphereFacade {
     SphereResponse create(SphereCreateDto dto);
 
     SphereResponse update(SphereUpdateDto dto);
+
+    void deleteByUuid(UUID uuid);
 }

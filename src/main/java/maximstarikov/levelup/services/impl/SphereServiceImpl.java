@@ -30,4 +30,9 @@ public class SphereServiceImpl implements SphereService {
     public Optional<Sphere> getByUuid(UUID uuid) {
         return repository.findByUuid(uuid);
     }
+
+    @Override
+    public void deleteByUuid(UUID uuid) {
+        repository.deleteByUuid(uuid);
+    }
 }

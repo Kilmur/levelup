@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping(Endpoints.SPHERE)
@@ -32,5 +33,10 @@ public class SphereController {
     @PutMapping
     public SphereResponse update(@RequestBody @Valid SphereUpdateDto dto) {
         return sphereFacade.update(dto);
+    }
+
+    @DeleteMapping("by-uuid/{uuid}")
+    public void deleteByUuid(@PathVariable UUID uuid) {
+        sphereFacade.deleteByUuid(uuid);
     }
 }

@@ -13,4 +13,6 @@ public interface SphereService {
     Sphere save(Sphere newSphere);
 
     Optional<Sphere> getByUuid(UUID uuid);
+
+    void deleteByUuid(UUID uuid);
 }
