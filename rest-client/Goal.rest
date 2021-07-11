@@ -1,0 +1,23 @@
+### CREATE GOAL (only required fileds)
+POST localhost:8080/api/v1/user/goals
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJib2JieSIsImV4cCI6MTYyNzI0NjgwMH0.ys_jdhNFviXKKabnjDgdvb2QN3KmdaUckoudfjJh2eI4QNYFIE-7zHweJtL0UrLgKdFZMXf1fy0jYnUqD8GCIg
+Content-Type: application/json
+
+{
+  "sphereUuid": "e62ff4a5-9a83-4b2d-8659-c32344ad1793",
+  "name": "Цель номер один"
+}
+
+### CREATE GOAL (all fields)
+POST localhost:8080/api/v1/user/goals
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJib2JieSIsImV4cCI6MTYyNzI0NjgwMH0.ys_jdhNFviXKKabnjDgdvb2QN3KmdaUckoudfjJh2eI4QNYFIE-7zHweJtL0UrLgKdFZMXf1fy0jYnUqD8GCIg
+Content-Type: application/json
+
+{
+  "sphereUuid": "e62ff4a5-9a83-4b2d-8659-c32344ad1793",
+  "name": "Цель номер два",
+  "targetDate": "2021-07-11T05:05:34.844Z",
+  "description": "Сделать это и это для того и того"
+}
+
+###

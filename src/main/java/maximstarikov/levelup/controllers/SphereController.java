@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping(Endpoints.SPHERE)
+@RequestMapping(Endpoints.SPHERES)
 @RequiredArgsConstructor
 public class SphereController {
 
