@@ -23,4 +23,20 @@ public class GoalController {
     public GoalResponse create(@RequestBody @Valid GoalCreateDto dto) {
         return goalFacade.create(dto);
     }
+
+    public void getByUuidWithSteps() {
+
+    }
+
+    public void moveToSuccessJournal() {
+
+    }
+
+    public void completeGoal() {
+        
+    }
+
+    public void update() {
+
+    }
 }

@@ -7,6 +7,7 @@ import maximstarikov.levelup.models.dto.in.RegistrationUserDto;
 import maximstarikov.levelup.models.entities.Role;
 import maximstarikov.levelup.models.entities.User;
 import maximstarikov.levelup.services.UserService;
+import maximstarikov.levelup.services.UserSettingValueService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,7 @@ public class UserFacadeImpl implements UserFacade {
 
     private final UserService userService;
     private final PasswordEncoder passwordEncoder;
+    private final UserSettingValueService userSettingValueService;
 
     @Override
     public void registrationUser(RegistrationUserDto dto) {
@@ -29,6 +31,8 @@ public class UserFacadeImpl implements UserFacade {
                 .password(passwordEncoder.encode(dto.getPassword()))
                 .roles(Collections.singleton(Role.ROLE_USER))
                 .build();
-        userService.save(userForSave);
+        User createdUser = userService.save(userForSave);
+
+        userSettingValueService.createDefaultUserSettingsValue(createdUser);
     }
 }

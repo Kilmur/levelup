@@ -19,7 +19,8 @@ import java.util.Set;
 public class User implements UserDetails {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO) // TODO : посмотреть какую лучше, может sequence ?
+    @SequenceGenerator(name = "user_id_gen", sequenceName = "user_id_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_id_gen")
     private Long id;
 
     @NotBlank
