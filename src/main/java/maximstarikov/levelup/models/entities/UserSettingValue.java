@@ -1,10 +1,12 @@
 package maximstarikov.levelup.models.entities;
 
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
+@Getter
 @NoArgsConstructor
 @Entity
 @Table(name = "user_setting_value")

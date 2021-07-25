@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import maximstarikov.levelup.models.enums.SettingTypeValue;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -26,7 +27,7 @@ public class UserSetting {
     private UUID uuid;
 
     @Enumerated(EnumType.STRING)
-    private TypeValue type;
+    private SettingTypeValue type;
 
     private String defaultValue;
 

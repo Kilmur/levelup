@@ -8,16 +8,20 @@ import maximstarikov.levelup.models.dto.in.SphereCreateDto;
 import maximstarikov.levelup.models.dto.in.SphereUpdateDto;
 import maximstarikov.levelup.models.dto.out.SphereResponse;
 import maximstarikov.levelup.models.dto.out.SphereWithGoalsResponse;
+import maximstarikov.levelup.models.dto.out.sphere.SpheresForStartScreenResponse;
 import maximstarikov.levelup.models.entities.Sphere;
 import maximstarikov.levelup.models.entities.User;
+import maximstarikov.levelup.services.RoleSettingService;
 import maximstarikov.levelup.services.SphereService;
 import maximstarikov.levelup.services.UserService;
+import maximstarikov.levelup.services.UserSettingValueService;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import static org.apache.logging.log4j.util.Strings.isBlank;
 import static org.apache.logging.log4j.util.Strings.isNotBlank;
@@ -28,13 +32,27 @@ public class SphereFacadeImpl implements SphereFacade {
 
     private final SphereService sphereService;
     private final UserService userService;
+    private final UserSettingValueService userSettingValueService;
+    private final RoleSettingService roleSettingService;
     private final SphereListToSphereWithGoalsResponseList spheresToResponseListConverter;
     private  final ConversionService conversionService;
 
     @Override
-    public List<SphereWithGoalsResponse> getSpheresWithGoals() {
+    public SpheresForStartScreenResponse getSpheresForStart() {
         User user = userService.getCurrentUser();
-        return spheresToResponseListConverter.convert(sphereService.getSphereWithGoalsByUserId(user.getId()));
+        List<SphereWithGoalsResponse> sphereWithGoalsList = spheresToResponseListConverter.convert(sphereService.getSphereWithGoalsByUserId(user.getId()));
+
+        List<SpheresForStartScreenResponse.UserSettingResponse> userSettingResponseList = userSettingValueService.getAllWithUserSettings(user.getId())
+                .stream()
+                .map(SpheresForStartScreenResponse.UserSettingResponse::createFrom)
+                .collect(Collectors.toList());
+
+        List<SpheresForStartScreenResponse.RoleSettingResponse> roleSettingResponseList = roleSettingService.getAllByRoleName(userService.getGeneralRole(user).name())
+                .stream()
+                .map(SpheresForStartScreenResponse::createFrom)
+                .collect(Collectors.toList());
+
+        return SpheresForStartScreenResponse.create(sphereWithGoalsList, userSettingResponseList, roleSettingResponseList);
     }
 
     @Override

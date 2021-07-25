@@ -9,6 +9,7 @@ import maximstarikov.levelup.services.UserSettingValueService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -27,5 +28,10 @@ public class UserSettingValueServiceImpl implements UserSettingValueService {
                 .map(userSetting -> new UserSettingValue(user, userSetting))
                 .collect(Collectors.toList());
         settingValueRepository.saveAll(settingValueList);
+    }
+
+    @Override
+    public Collection<UserSettingValue> getAllWithUserSettings(Long userId) {
+        return settingValueRepository.findAllWithSettingsByUserId(userId);
     }
 }

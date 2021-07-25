@@ -5,12 +5,11 @@ import maximstarikov.levelup.facades.SphereFacade;
 import maximstarikov.levelup.models.dto.in.SphereCreateDto;
 import maximstarikov.levelup.models.dto.in.SphereUpdateDto;
 import maximstarikov.levelup.models.dto.out.SphereResponse;
-import maximstarikov.levelup.models.dto.out.SphereWithGoalsResponse;
+import maximstarikov.levelup.models.dto.out.sphere.SpheresForStartScreenResponse;
 import maximstarikov.levelup.properties.Endpoints;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -20,9 +19,9 @@ public class SphereController {
 
     private final SphereFacade sphereFacade;
 
-    @GetMapping
-    public List<SphereWithGoalsResponse> getSpheresWithGoals() {
-        return sphereFacade.getSpheresWithGoals();
+    @GetMapping("start")
+    public SpheresForStartScreenResponse getSpheresForStart() {
+        return sphereFacade.getSpheresForStart();
     }
 
     @PostMapping

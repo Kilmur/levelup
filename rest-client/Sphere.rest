@@ -1,10 +1,10 @@
-### GET SPHERES
-GET localhost:8080/api/v1/user/spheres
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJib2JieSIsImV4cCI6MTYyNzI0NjgwMH0.ys_jdhNFviXKKabnjDgdvb2QN3KmdaUckoudfjJh2eI4QNYFIE-7zHweJtL0UrLgKdFZMXf1fy0jYnUqD8GCIg
+### GET SPHERES FOR START SCREEN
+GET localhost:8080/api/v1/user/spheres/start
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJib2JieSIsImV4cCI6MTYyODQ1NjQwMH0.Of7is55ZWqlKPQ1AOWnjG2LHW3sN8WeKecuPbnVclRKW3F7lljZgoS3hzVtw-cbGnofkqI4kQ6UErPD59sr_mA
 
 ### CREATE SPHERE
 POST localhost:8080/api/v1/user/spheres
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJib2JieSIsImV4cCI6MTYyNzI0NjgwMH0.ys_jdhNFviXKKabnjDgdvb2QN3KmdaUckoudfjJh2eI4QNYFIE-7zHweJtL0UrLgKdFZMXf1fy0jYnUqD8GCIg
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJib2JieSIsImV4cCI6MTYyODQ1NjQwMH0.Of7is55ZWqlKPQ1AOWnjG2LHW3sN8WeKecuPbnVclRKW3F7lljZgoS3hzVtw-cbGnofkqI4kQ6UErPD59sr_mA
 Content-Type: application/json
 
 {
