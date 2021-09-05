@@ -36,9 +36,5 @@ public class UserSetting {
     private String description;
 
     private String techName;
-
-    public enum TypeValue {
-        CHECKBOX, TEXT
-    }
 }
 

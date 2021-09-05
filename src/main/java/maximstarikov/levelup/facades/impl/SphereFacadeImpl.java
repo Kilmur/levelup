@@ -2,6 +2,7 @@ package maximstarikov.levelup.facades.impl;
 
 import lombok.RequiredArgsConstructor;
 import maximstarikov.levelup.exceptions.SphereNotFoundException;
+import maximstarikov.levelup.exceptions.UserSettingValueNotFoundException;
 import maximstarikov.levelup.facades.SphereFacade;
 import maximstarikov.levelup.mapping.SphereListToSphereWithGoalsResponseList;
 import maximstarikov.levelup.models.dto.in.SphereCreateDto;
@@ -11,6 +12,7 @@ import maximstarikov.levelup.models.dto.out.SphereWithGoalsResponse;
 import maximstarikov.levelup.models.dto.out.sphere.SpheresForStartScreenResponse;
 import maximstarikov.levelup.models.entities.Sphere;
 import maximstarikov.levelup.models.entities.User;
+import maximstarikov.levelup.models.entities.UserSettingValue;
 import maximstarikov.levelup.services.RoleSettingService;
 import maximstarikov.levelup.services.SphereService;
 import maximstarikov.levelup.services.UserService;
@@ -37,6 +39,8 @@ public class SphereFacadeImpl implements SphereFacade {
     private final SphereListToSphereWithGoalsResponseList spheresToResponseListConverter;
     private  final ConversionService conversionService;
 
+    private static final String SPHERE_DEFAULT_COLOR_SETTING_NAME = "SPHERE_DEFAULT_COLOR"; // TODO : подумать может вынести в enum
+
     @Override
     public SpheresForStartScreenResponse getSpheresForStart() {
         User user = userService.getCurrentUser();
@@ -60,7 +64,10 @@ public class SphereFacadeImpl implements SphereFacade {
         Sphere newSphere = new Sphere();
         newSphere.setName(dto.getName());
         if (isBlank(dto.getBackgroundColor())) {
-            newSphere.setBackgroundColor("#ffffff"); // TODO : из настроек
+            Long currentUserId = userService.getCurrentUser().getId();
+            UserSettingValue userSettingValue = userSettingValueService.getForUserByTechName(currentUserId, SPHERE_DEFAULT_COLOR_SETTING_NAME)
+                    .orElseThrow(() -> UserSettingValueNotFoundException.byUserIdAndSettingTechName(currentUserId, SPHERE_DEFAULT_COLOR_SETTING_NAME));
+            newSphere.setBackgroundColor(userSettingValue.getValue());
         } else {
             newSphere.setBackgroundColor(dto.getBackgroundColor());
         }

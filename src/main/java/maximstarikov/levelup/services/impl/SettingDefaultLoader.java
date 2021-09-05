@@ -2,6 +2,7 @@ package maximstarikov.levelup.services.impl;
 
 import lombok.RequiredArgsConstructor;
 import maximstarikov.levelup.models.entities.UserSetting;
+import maximstarikov.levelup.models.enums.SettingTypeValue;
 import maximstarikov.levelup.repositories.UserSettingRepository;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +23,7 @@ public class SettingDefaultLoader {
 //        List<UserSetting> userSettingForSaving = Stream.of(
 //                UserSetting.builder()
 //                        .uuid(UUID.randomUUID())
-//                        .type(UserSetting.TypeValue.CHECKBOX)
+//                        .type(SettingTypeValue.CHECKBOX)
 //                        .defaultValue("false")
 //                        .title("Отображать выполненные цели")
 //                        .description("Если настройка включена в списке целей будут продолжать отображаться уже выполненные цели, если отключена - только актуальные")
@@ -30,7 +31,7 @@ public class SettingDefaultLoader {
 //                        .build(),
 //                UserSetting.builder()
 //                        .uuid(UUID.randomUUID())
-//                        .type(UserSetting.TypeValue.TEXT)
+//                        .type(SettingTypeValue.TEXT)
 //                        .defaultValue("#ffffff")
 //                        .title("Цвет сфер по-умолчанию")
 //                        .description("Цвет для сфер при создании")

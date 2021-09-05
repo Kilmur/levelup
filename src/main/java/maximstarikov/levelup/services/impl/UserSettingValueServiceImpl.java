@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -33,5 +34,10 @@ public class UserSettingValueServiceImpl implements UserSettingValueService {
     @Override
     public Collection<UserSettingValue> getAllWithUserSettings(Long userId) {
         return settingValueRepository.findAllWithSettingsByUserId(userId);
+    }
+
+    @Override
+    public Optional<UserSettingValue> getForUserByTechName(Long userId, String settingTechName) {
+        return settingValueRepository.findByUserIdAndSettingTechName(userId, settingTechName);
     }
 }
