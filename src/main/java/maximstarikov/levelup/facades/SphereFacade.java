@@ -3,10 +3,8 @@ package maximstarikov.levelup.facades;
 import maximstarikov.levelup.models.dto.in.SphereCreateDto;
 import maximstarikov.levelup.models.dto.in.SphereUpdateDto;
 import maximstarikov.levelup.models.dto.out.SphereResponse;
-import maximstarikov.levelup.models.dto.out.SphereWithGoalsResponse;
 import maximstarikov.levelup.models.dto.out.sphere.SpheresForStartScreenResponse;
 
-import java.util.List;
 import java.util.UUID;
 
 public interface SphereFacade {
