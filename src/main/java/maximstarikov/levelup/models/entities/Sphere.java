@@ -23,7 +23,6 @@ public class Sphere {
     private Long id;
 
     // TODO : генерация через аннотацию
-    @Type(type = "uuid-char")
     private UUID uuid = UUID.randomUUID();
 
     private String name;

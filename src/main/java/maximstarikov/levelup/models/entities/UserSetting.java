@@ -5,7 +5,6 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import maximstarikov.levelup.models.enums.SettingTypeValue;
-import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.UUID;
@@ -23,7 +22,6 @@ public class UserSetting {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_settings_id_gen")
     private Long id;
 
-    @Type(type = "uuid-char")
     private UUID uuid;
 
     @Enumerated(EnumType.STRING)

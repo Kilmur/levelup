@@ -21,7 +21,6 @@ public class Goal {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Type(type = "uuid-char")
     private UUID uuid;
 
     private Instant createdDate;
