@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Getter
 @NoArgsConstructor
 @Entity
-@Table(name = "user_setting_value")
+@Table(name = "users_settings_values")
 @IdClass(UserSettingValue.UserSettingValueId.class)
 public class UserSettingValue {
 

@@ -14,12 +14,12 @@ import java.util.UUID;
 @AllArgsConstructor
 @Getter
 @Entity
-@Table(name = "user_settings")
+@Table(name = "users_settings")
 public class UserSetting {
 
     @Id
-    @SequenceGenerator(name="user_settings_id_gen", sequenceName = "user_settings_id_seq")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_settings_id_gen")
+    @SequenceGenerator(name="users_settings_gen", sequenceName = "users_settings_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "users_settings_gen")
     private Long id;
 
     private UUID uuid;

@@ -14,7 +14,8 @@ import java.util.UUID;
 public class Step {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "steps_gen", sequenceName = "steps_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "steps_gen")
     private Long id;
 
     private UUID uuid;

@@ -10,6 +10,7 @@ import maximstarikov.levelup.services.UserService;
 import maximstarikov.levelup.services.UserSettingValueService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collections;
 
@@ -22,6 +23,7 @@ public class UserFacadeImpl implements UserFacade {
     private final UserSettingValueService userSettingValueService;
 
     @Override
+    @Transactional
     public void registrationUser(RegistrationUserDto dto) {
         if (userService.isExistsByLogin(dto.getLogin())) {
             throw UserAlreadyExistsException.byLogin(dto.getLogin());

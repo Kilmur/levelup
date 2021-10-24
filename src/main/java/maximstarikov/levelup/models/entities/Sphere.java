@@ -19,7 +19,8 @@ import java.util.UUID;
 public class Sphere {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO) // TODO : sequence
+    @SequenceGenerator(name = "spheres_gen", sequenceName = "spheres_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "spheres_gen")
     private Long id;
 
     // TODO : генерация через аннотацию

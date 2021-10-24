@@ -19,8 +19,8 @@ import java.util.Set;
 public class User implements UserDetails {
 
     @Id
-    @SequenceGenerator(name = "user_id_gen", sequenceName = "user_id_seq")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_id_gen")
+    @SequenceGenerator(name = "users_gen", sequenceName = "users_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "users_gen")
     private Long id;
 
     @NotBlank

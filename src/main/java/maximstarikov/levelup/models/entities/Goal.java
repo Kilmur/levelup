@@ -18,7 +18,8 @@ import java.util.UUID;
 public class Goal {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "goals_seq_gen", sequenceName = "goals_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "goals_seq_gen")
     private Long id;
 
     private UUID uuid;

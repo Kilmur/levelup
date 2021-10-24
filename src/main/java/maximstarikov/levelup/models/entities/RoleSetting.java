@@ -11,7 +11,7 @@ import javax.persistence.*;
 public class RoleSetting {
 
     @Id
-    @SequenceGenerator(name = "roles_settings_gen", sequenceName = "roles_settings_seq")
+    @SequenceGenerator(name = "roles_settings_gen", sequenceName = "roles_settings_id_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "roles_settings_gen")
     private Long id;
 

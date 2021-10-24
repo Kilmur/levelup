@@ -7,6 +7,7 @@ import javax.persistence.*;
 public class SuccessGoal { // TODO : подумать как назвать более нормально
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "success_journal_gen", sequenceName = "success_journal_id_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "success_journal_gen")
     private Long id;
 }

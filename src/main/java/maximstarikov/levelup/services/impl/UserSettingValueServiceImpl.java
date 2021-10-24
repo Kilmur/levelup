@@ -22,7 +22,6 @@ public class UserSettingValueServiceImpl implements UserSettingValueService {
     private final UserSettingValueRepository settingValueRepository;
 
     @Override
-    @Transactional // TODO : разобраться
     public void createDefaultUserSettingsValue(User user) {
         List<UserSettingValue> settingValueList = userSettingRepository.findAll()
                 .stream()
