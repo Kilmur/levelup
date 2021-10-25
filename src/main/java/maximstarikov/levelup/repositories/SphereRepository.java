@@ -20,6 +20,6 @@ public interface SphereRepository extends JpaRepository<Sphere, Long> {
 
     @Modifying
     @Transactional
-    @Query("DELETE FROM Sphere s WHERE s.uuid = :uuid")
+    @Query("DELETE FROM Sphere WHERE uuid = :uuid")
     void deleteByUuid(UUID uuid);
 }

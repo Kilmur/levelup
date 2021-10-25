@@ -7,5 +7,5 @@ CREATE TABLE goals
     name           VARCHAR        NOT NULL,
     description    VARCHAR,
     finished       BOOLEAN,
-    sphere_id      BIGINT         NOT NULL     references spheres
+    sphere_id      BIGINT         NOT NULL     references spheres ON DELETE CASCADE
 );

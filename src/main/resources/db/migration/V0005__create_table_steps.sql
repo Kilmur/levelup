@@ -6,5 +6,5 @@ CREATE TABLE steps
     description    VARCHAR,
     created_date   TIMESTAMP      NOT NULL      default now(),
     target_date    TIMESTAMP,
-    goal_id        BIGINT         NOT NULL     references goals
+    goal_id        BIGINT         NOT NULL     references goals ON DELETE CASCADE
 );
