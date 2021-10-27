@@ -23,6 +23,7 @@ public class SphereListToSphereWithGoalsResponseListImpl implements SphereListTo
                         .map(goal -> SphereWithGoalsResponse.Goal.builder()
                                 .name(goal.getName())
                                 .uuid(goal.getUuid())
+                                .backgroundColor(goal.getBackgroundColor())
                                 .targetDate(goal.getTargetDate())
                                 .build())
                         .collect(Collectors.toSet()))

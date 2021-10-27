@@ -7,6 +7,7 @@ import org.hibernate.annotations.Loader;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.sql.Types;
 import java.time.Instant;
 import java.util.Set;
@@ -26,11 +27,13 @@ public class Sphere {
     // TODO : генерация через аннотацию
     private UUID uuid = UUID.randomUUID();
 
+    @NotBlank
     private String name;
 
     // TODO : подумать
     private Instant createdDate = Instant.now();
 
+    @NotBlank
     private String backgroundColor;
 
     @ManyToOne(fetch = FetchType.LAZY)

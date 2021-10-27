@@ -6,6 +6,7 @@ import lombok.Setter;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.time.Instant;
 import java.util.Set;
 import java.util.UUID;
@@ -28,9 +29,13 @@ public class Goal {
 
     private Instant targetDate;
 
+    @NotBlank
     private String name;
     private String description;
     private boolean finished;
+
+    @NotBlank
+    private String backgroundColor;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "sphere_id")
@@ -40,9 +45,10 @@ public class Goal {
     private Set<Step> steps;
 
     // TODO : сделать заполнение по другому, как и для create Sphere
-    public Goal(String name, String description, Sphere sphere, Instant targetDate) {
+    public Goal(String name, String description, String backgroundColor, Sphere sphere, Instant targetDate) {
         this.name = name;
         this.description = description;
+        this.backgroundColor = backgroundColor;
         this.sphere = sphere;
         this.targetDate = targetDate;
         this.uuid = UUID.randomUUID();

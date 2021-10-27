@@ -1,28 +1,29 @@
 ### GET SPHERES FOR START SCREEN
 GET localhost:8080/api/v1/user/spheres/start
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJib2JieSIsImV4cCI6MTYyODQ1NjQwMH0.Of7is55ZWqlKPQ1AOWnjG2LHW3sN8WeKecuPbnVclRKW3F7lljZgoS3hzVtw-cbGnofkqI4kQ6UErPD59sr_mA
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJib2JieSIsImV4cCI6MTYzNjU3ODAwMH0.kdl1dck7Du5Z3GyilgEXA8Ujb964iBWBtFHdYftrcxB7AjAxwY8Bt2AQKRLn2FlTqDBfGvqrBpkvB839WhL94w
 
 ### CREATE SPHERE
 POST localhost:8080/api/v1/user/spheres
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJib2JieSIsImV4cCI6MTYzMjA4NTIwMH0.PbXCk9yrrkRc37DOI3ruOjtEv-BVFGPSn36CfHe-9_4qvdK06ev0bXrBaigs3yHT8Z63et1eozwIV42AUQn-sQ
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJib2JieSIsImV4cCI6MTYzNjU3ODAwMH0.kdl1dck7Du5Z3GyilgEXA8Ujb964iBWBtFHdYftrcxB7AjAxwY8Bt2AQKRLn2FlTqDBfGvqrBpkvB839WhL94w
 Content-Type: application/json
 
 {
-  "name": "Сфера 6"
+  "name": "Сфера 2",
+  "backgroundColor": "#ff0066"
 }
 
 ### UPDATE SPHERE
 PUT localhost:8080/api/v1/user/spheres
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJib2IiLCJleHAiOjE2MjY5MDEyMDB9.IEEOA3D_Rs-Nf_dzrFcFRcQESC_DRtuvjFjn-aZdk8w8X8dMPVx-Fml9JeSNlV6bmt09FnycPjljlmzDdfxKGQ
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJib2JieTIiLCJleHAiOjE2MzYzMTg4MDB9.58rlT1dmicQoHj-7HqZpNAbM2clfWtGpLZcx8qOOErozfxATs2BnI9HbayAEvse-AdCRdk7_6Hif2HxUj5XF7Q
 Content-Type: application/json
 
 {
-  "uuid": "b4041b0d-2afb-41de-b44e-df4afeca5e1d",
+  "uuid": "9dbf595e-24b0-44f5-b2df-38dcc16b8fd8",
   "name": "Сфера 3",
-  "backgroundColor": "#ff0011"
+  "backgroundColor": "#ff0055"
 }
 
 ### DELETE SPHERE BY UUID
-DELETE localhost:8080/api/v1/user/spheres/by-uuid/b4041b0d-2afb-41de-b44e-df4afeca5e1d
+DELETE localhost:8080/api/v1/user/spheres/by-uuid/2ef93fde-ef40-46a1-a2a0-a27702794662
 
 ###

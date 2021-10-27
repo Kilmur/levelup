@@ -19,4 +19,6 @@ public class GoalCreateDto {
     Instant targetDate;
 
     String description;
+
+    String backgroundColor;
 }

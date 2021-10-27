@@ -27,6 +27,8 @@ public class SphereWithGoalsResponse {
 
         UUID uuid;
 
+        String backgroundColor;
+
         Instant targetDate;
     }
 }
