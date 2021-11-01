@@ -3,6 +3,7 @@ package maximstarikov.levelup.controllers;
 import lombok.RequiredArgsConstructor;
 import maximstarikov.levelup.facades.GoalFacade;
 import maximstarikov.levelup.models.dto.in.goal.GoalCreateDto;
+import maximstarikov.levelup.models.dto.in.goal.GoalModifyDto;
 import maximstarikov.levelup.models.dto.out.goal.GoalResponse;
 import maximstarikov.levelup.models.dto.out.goal.GoalWithStepsResponse;
 import maximstarikov.levelup.properties.Endpoints;
@@ -32,8 +33,9 @@ public class GoalController {
 
     }
 
-    public void completeGoal() {
-        
+    @PutMapping
+    public GoalResponse modify(@RequestBody @Valid GoalModifyDto dto) {
+        return goalFacade.modify(dto);
     }
 
     public void update() {
