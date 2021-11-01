@@ -4,13 +4,12 @@ import lombok.RequiredArgsConstructor;
 import maximstarikov.levelup.facades.GoalFacade;
 import maximstarikov.levelup.models.dto.in.goal.GoalCreateDto;
 import maximstarikov.levelup.models.dto.out.goal.GoalResponse;
+import maximstarikov.levelup.models.dto.out.goal.GoalWithStepsResponse;
 import maximstarikov.levelup.properties.Endpoints;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.UUID;
 
 @RestController
 @RequestMapping(Endpoints.GOALS)
@@ -24,8 +23,9 @@ public class GoalController {
         return goalFacade.create(dto);
     }
 
-    public void getByUuidWithSteps() {
-
+    @GetMapping("by-uuid/{uuid}")
+    public GoalWithStepsResponse getByUuidWithSteps(@PathVariable UUID uuid) {
+        return goalFacade.getByUuidWithSteps(uuid);
     }
 
     public void moveToSuccessJournal() {

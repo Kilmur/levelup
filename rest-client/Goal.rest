@@ -21,4 +21,10 @@ Content-Type: application/json
   "backgroundColor": "#ff00aa"
 }
 
+### GET GOAL WITH STEPS
+GET localhost:8080/api/v1/user/goals/by-uuid/1c9b15af-f91e-43c1-9d03-78faa5e685d8
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJib2JieSIsImV4cCI6MTYzNzAxMDAwMH0.LkDjT2xDweMXU_G3EbLVaf9iLpQpa8h3QwL7ltmsJg3k9vqNuG5OPv_pSsxwCVfKOMf9PFX4ZtFDJ827K7TTgA
+
+###
+###
 ###

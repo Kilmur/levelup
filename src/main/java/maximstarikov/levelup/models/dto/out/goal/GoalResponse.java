@@ -15,4 +15,8 @@ public class GoalResponse {
     Instant targetDate;
 
     String description;
+
+    boolean finished;
+
+    String backgroundColor;
 }

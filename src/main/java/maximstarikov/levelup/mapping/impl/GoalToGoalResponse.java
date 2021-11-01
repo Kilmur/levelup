@@ -10,6 +10,6 @@ public class GoalToGoalResponse implements Converter<Goal, GoalResponse> {
 
     @Override
     public GoalResponse convert(Goal entity) {
-        return GoalResponse.create(entity.getUuid(), entity.getName(), entity.getTargetDate(), entity.getDescription());
+        return GoalResponse.create(entity.getUuid(), entity.getName(), entity.getTargetDate(), entity.getDescription(), entity.isFinished(), entity.getBackgroundColor());
     }
 }

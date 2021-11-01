@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.time.Instant;
 import java.util.UUID;
 
@@ -20,10 +21,14 @@ public class Step {
 
     private UUID uuid;
 
+    @NotBlank
     private String name;
     private String description;
     private Instant createdDate;
     private Instant targetDate;
+
+    @NotBlank
+    private String backgroundColor;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "goal_id")
