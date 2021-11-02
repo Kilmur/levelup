@@ -3,20 +3,14 @@ package maximstarikov.levelup.models.dto.in.goal;
 import lombok.Value;
 
 import javax.validation.constraints.NotNull;
-import java.time.Instant;
 import java.util.UUID;
 
 @Value
-public class GoalModifyDto {
+public class GoalFinishDto {
 
     @NotNull
     UUID uuid;
 
-    Instant targetDate;
-
-    String name;
-
-    String description;
-
-    String backgroundColor;
+    @NotNull
+    Boolean finished;
 }

@@ -25,6 +25,7 @@ public class SphereListToSphereWithGoalsResponseListImpl implements SphereListTo
                                 .uuid(goal.getUuid())
                                 .backgroundColor(goal.getBackgroundColor())
                                 .targetDate(goal.getTargetDate())
+                                .finished(goal.isFinished())
                                 .build())
                         .collect(Collectors.toSet()))
                 .build())

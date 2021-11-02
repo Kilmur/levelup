@@ -22,7 +22,7 @@ Content-Type: application/json
 }
 
 ### GET GOAL WITH STEPS
-GET localhost:8080/api/v1/user/goals/by-uuid/1c9b15af-f91e-43c1-9d03-78faa5e685d8
+GET localhost:8080/api/v1/user/goals/1eb2a538-ef67-405e-b0a6-4b4942db19b1
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJib2JieSIsImV4cCI6MTYzNzAxMDAwMH0.LkDjT2xDweMXU_G3EbLVaf9iLpQpa8h3QwL7ltmsJg3k9vqNuG5OPv_pSsxwCVfKOMf9PFX4ZtFDJ827K7TTgA
 
 ### MODIFY
@@ -35,10 +35,18 @@ Content-Type: application/json
   "targetDate": "2023-02-02T02:02:02.844Z",
   "name": "Цель номер пять",
   "description": "Описание",
-  "finished": true,
   "backgroundColor": "#ff0033"
 }
 
 
-###
+### CHANGE FINISHED
+PUT localhost:8080/api/v1/user/goals/finish
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJib2JieSIsImV4cCI6MTYzNzAxMDAwMH0.LkDjT2xDweMXU_G3EbLVaf9iLpQpa8h3QwL7ltmsJg3k9vqNuG5OPv_pSsxwCVfKOMf9PFX4ZtFDJ827K7TTgA
+Content-Type: application/json
+
+{
+  "uuid": "1eb2a538-ef67-405e-b0a6-4b4942db19b1",
+  "finished": true
+}
+
 ###

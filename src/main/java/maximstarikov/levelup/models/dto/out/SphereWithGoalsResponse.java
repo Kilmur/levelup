@@ -30,5 +30,7 @@ public class SphereWithGoalsResponse {
         String backgroundColor;
 
         Instant targetDate;
+
+        boolean finished;
     }
 }

@@ -10,4 +10,6 @@ public interface GoalService {
     Goal save(Goal newGoal);
 
     Optional<Goal> getByUuid(UUID uuid);
+
+    void changeFinished(UUID uuid, boolean finished);
 }

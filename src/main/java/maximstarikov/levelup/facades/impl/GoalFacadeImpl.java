@@ -5,6 +5,7 @@ import maximstarikov.levelup.exceptions.GoalNotFoundException;
 import maximstarikov.levelup.facades.GoalFacade;
 import maximstarikov.levelup.mapping.GoalAndStepsToGoalWithStepsResponse;
 import maximstarikov.levelup.models.dto.in.goal.GoalCreateDto;
+import maximstarikov.levelup.models.dto.in.goal.GoalFinishDto;
 import maximstarikov.levelup.models.dto.in.goal.GoalModifyDto;
 import maximstarikov.levelup.models.dto.out.goal.GoalResponse;
 import maximstarikov.levelup.models.dto.out.goal.GoalWithStepsResponse;
@@ -56,12 +57,14 @@ public class GoalFacadeImpl implements GoalFacade {
         if (nonNull(dto.getDescription())) {
             entity.setDescription(dto.getDescription());
         }
-        if (nonNull(dto.getFinished())) {
-            entity.setFinished(dto.getFinished());
-        }
         if (nonNull(dto.getBackgroundColor())) {
             entity.setBackgroundColor(dto.getBackgroundColor());
         }
         return conversionService.convert(entity, GoalResponse.class);
+    }
+
+    @Override
+    public void changeFinished(GoalFinishDto dto) {
+        goalService.changeFinished(dto.getUuid(), dto.getFinished());
     }
 }

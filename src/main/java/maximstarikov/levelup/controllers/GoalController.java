@@ -3,6 +3,7 @@ package maximstarikov.levelup.controllers;
 import lombok.RequiredArgsConstructor;
 import maximstarikov.levelup.facades.GoalFacade;
 import maximstarikov.levelup.models.dto.in.goal.GoalCreateDto;
+import maximstarikov.levelup.models.dto.in.goal.GoalFinishDto;
 import maximstarikov.levelup.models.dto.in.goal.GoalModifyDto;
 import maximstarikov.levelup.models.dto.out.goal.GoalResponse;
 import maximstarikov.levelup.models.dto.out.goal.GoalWithStepsResponse;
@@ -24,7 +25,7 @@ public class GoalController {
         return goalFacade.create(dto);
     }
 
-    @GetMapping("by-uuid/{uuid}")
+    @GetMapping("{uuid}")
     public GoalWithStepsResponse getByUuidWithSteps(@PathVariable UUID uuid) {
         return goalFacade.getByUuidWithSteps(uuid);
     }
@@ -38,7 +39,8 @@ public class GoalController {
         return goalFacade.modify(dto);
     }
 
-    public void update() {
-
+    @PutMapping("finish")
+    public void changeFinished(@RequestBody @Valid GoalFinishDto dto) {
+        goalFacade.changeFinished(dto);
     }
 }
